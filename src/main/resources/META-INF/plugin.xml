@@ -1,14 +1,33 @@
 <idea-plugin>
     <id>com.fastapi.codegen</id>
-    <name>FastAPI Code Generator</name>
-    <vendor email="support@example.com" url="https://github.com/example/fastapi-codegen-plugin">FastAPI CodeGen</vendor>
+    <name>Python Web Code Generator</name>
+    <vendor email="support@example.com" url="https://github.com/example/python-web-codegen-plugin">Python Web CodeGen</vendor>
 
     <description><![CDATA[
-        <h2>FastAPI Code Generator</h2>
-        <p>Generate FastAPI CRUD code from SQLAlchemy models and sync database schema.</p>
+        <h2>Python Web Code Generator</h2>
+        <p>Generate CRUD code for multiple Python web frameworks from database schemas or existing Python models.</p>
+        <h3>Supported Frameworks</h3>
         <ul>
-            <li>Read SQLAlchemy models and generate schemas, services, routers</li>
-            <li>Auto-sync database schema from models (CREATE/ALTER TABLE)</li>
+            <li><b>FastAPI</b> - Modern async framework with automatic OpenAPI docs</li>
+            <li><b>Flask</b> - Lightweight and flexible microframework</li>
+            <li><b>Django REST Framework</b> - Powerful toolkit for building Web APIs</li>
+            <li><b>Sanic</b> - Async-first framework for high performance</li>
+            <li><b>Starlette</b> - Lightweight ASGI framework</li>
+        </ul>
+        <h3>Supported ORMs</h3>
+        <ul>
+            <li>SQLAlchemy</li>
+            <li>SQLModel</li>
+            <li>Tortoise ORM</li>
+            <li>Peewee</li>
+            <li>Django ORM</li>
+            <li>Piccolo</li>
+        </ul>
+        <h3>Features</h3>
+        <ul>
+            <li>Auto-detect project framework, ORM, and response patterns</li>
+            <li>Generate models, schemas, services, and routers</li>
+            <li>Sync database schema from models (CREATE/ALTER TABLE)</li>
             <li>Support MySQL and PostgreSQL</li>
             <li>Works with both PyCharm Community and Professional</li>
         </ul>
@@ -20,8 +39,8 @@
     <actions>
         <action id="com.fastapi.codegen.GenerateCode"
                 class="com.fastapi.codegen.action.GenerateCodeAction"
-                text="生成 FastAPI 代码"
-                description="从模型生成 schemas、services、routers">
+                text="生成 Python Web 代码"
+                description="从模型生成 schemas、services、routers（支持 FastAPI/Flask/Django REST/Sanic/Starlette）">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </action>
@@ -34,7 +53,7 @@
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="FastAPI CodeGen"
+        <toolWindow id="Python Web CodeGen"
                     anchor="right"
                     factoryClass="com.fastapi.codegen.toolwindow.CodeGenToolWindowFactory"
                     icon="AllIcons.Toolwindows.WebToolWindow"/>

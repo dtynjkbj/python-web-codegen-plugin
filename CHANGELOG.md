@@ -10,8 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial release
-- Multi-ORM support: SQLAlchemy, SQLModel, Tortoise ORM, Peewee, Django ORM, Piccolo
 - Multi-framework support: FastAPI, Flask, Django REST Framework, Sanic, Starlette
+- Multi-ORM support: SQLAlchemy, SQLModel, Tortoise ORM, Peewee, Django ORM, Piccolo
 - Automatic project context detection (ORM type, framework, response patterns)
 - ToolWindow-based UI with granular generation target selection
 - Database schema sync (MySQL, PostgreSQL)
@@ -20,3 +20,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Custom response pattern detection and adaptation
 - Relative path display for model files
 - Left-aligned UI components for better readability
+- Async/sync code generation based on project detection
