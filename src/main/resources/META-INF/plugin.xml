@@ -1,0 +1,42 @@
+<idea-plugin>
+    <id>com.fastapi.codegen</id>
+    <name>FastAPI Code Generator</name>
+    <vendor email="support@example.com" url="https://github.com/example/fastapi-codegen-plugin">FastAPI CodeGen</vendor>
+
+    <description><![CDATA[
+        <h2>FastAPI Code Generator</h2>
+        <p>Generate FastAPI CRUD code from SQLAlchemy models and sync database schema.</p>
+        <ul>
+            <li>Read SQLAlchemy models and generate schemas, services, routers</li>
+            <li>Auto-sync database schema from models (CREATE/ALTER TABLE)</li>
+            <li>Support MySQL and PostgreSQL</li>
+            <li>Works with both PyCharm Community and Professional</li>
+        </ul>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.python</depends>
+
+    <actions>
+        <action id="com.fastapi.codegen.GenerateCode"
+                class="com.fastapi.codegen.action.GenerateCodeAction"
+                text="生成 FastAPI 代码"
+                description="从模型生成 schemas、services、routers">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+        <action id="com.fastapi.codegen.SyncDatabase"
+                class="com.fastapi.codegen.action.SyncDatabaseAction"
+                text="同步数据库结构"
+                description="从模型创建或更新数据库表">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="FastAPI CodeGen"
+                    anchor="right"
+                    factoryClass="com.fastapi.codegen.toolwindow.CodeGenToolWindowFactory"
+                    icon="AllIcons.Toolwindows.WebToolWindow"/>
+    </extensions>
+</idea-plugin>
